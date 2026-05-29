@@ -1,3 +1,4 @@
+require('dotenv').config();
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -14,14 +15,14 @@ app.use(express.json());
 
 // Firebase Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCGBmdxrZB5XeI8s1jBktpym81txAE7ODA",
-  authDomain: "hydroponicmonitoring-31595.firebaseapp.com",
-  databaseURL: "https://hydroponicmonitoring-31595-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "hydroponicmonitoring-31595",
-  storageBucket: "hydroponicmonitoring-31595.firebasestorage.app",
-  messagingSenderId: "414734302006",
-  appId: "1:414734302006:web:2a5c90b36e100c5e1ed197",
-  measurementId: "G-HB9R9LCKP7"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
@@ -30,8 +31,8 @@ const database = getDatabase(firebaseApp);
 const auth = getAuth(firebaseApp);
 
 // Firebase Authentication Credentials
-const email = "IT21192050@my.sliit.lk";
-const password = "200007901313";
+const email = process.env.FIREBASE_AUTH_EMAIL;
+const password = process.env.FIREBASE_AUTH_PASSWORD;
 
 
 

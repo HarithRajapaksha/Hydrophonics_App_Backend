@@ -7,9 +7,10 @@ const { initializeApp } = require('firebase/app');
 const { getDatabase, ref, push, set, get, update } = require('firebase/database');
 const { getAuth } = require('firebase/auth');
 
-app.use(cors());
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.use(cors());
 
 // Middleware to parse JSON data
 app.use(bodyParser.json());

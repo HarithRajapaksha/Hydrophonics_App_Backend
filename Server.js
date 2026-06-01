@@ -1,13 +1,16 @@
 require('dotenv').config();
 const http = require('http');
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const { initializeApp } = require('firebase/app');
 const { getDatabase, ref, push, set, get, update } = require('firebase/database');
-const { getAuth} = require('firebase/auth');
+const { getAuth } = require('firebase/auth');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+app.use(cors());
 
 // Middleware to parse JSON data
 app.use(bodyParser.json());
@@ -63,7 +66,7 @@ app.get('/getdata', async (req, res) => {
 // Create an HTTP server
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  const msg = 'Hello Node!\n'; 
+  const msg = 'Hello Node!\n';
   res.end(msg);
 });
 
